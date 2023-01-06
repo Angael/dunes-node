@@ -1,0 +1,36 @@
+{
+  "name": "@vanih/dunes-node",
+  "version": "0.0.1",
+  "description": "NPM package for compressing videos using FFMPEG and FFPROBE",
+  "keywords": [
+    "ffmpeg",
+    "ffprobe",
+    "video",
+    "compression"
+  ],
+  "homepage": "https://github.com/Angael/dunes-node",
+  "author": {
+    "name": "Krzysztof Widacki",
+    "email": "krzysztofwidacki@gmail.com",
+    "url": "https://krzysztof.widacki.me/"
+  },
+  "repository": {
+    "url": "https://github.com/Angael/dunes-node.git",
+    "type": "git"
+  },
+  "private": false,
+  "main": "lib/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf lib && tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "prettier": "^2.8.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.4"
+  },
+  "engines": {
+    "node": ">=v18.12.1"
+  }
+}
