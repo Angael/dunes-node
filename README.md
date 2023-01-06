@@ -3,16 +3,9 @@ NPM library for easy video compression.
 
 Uses `ffmpeg` and `ffprobe`
 
-## Cheatsheet
+## Workflow
 
-To publish
-```
-npm publish
-```
-> Note: `scripts.prepublishOnly` will ensure that the project is built before publishing
-
-To increment version
-```
-npm version patch
-```
-
+1. Write code
+2. Commit & Push
+3. `npm version patch`
+4. `npm publish`
