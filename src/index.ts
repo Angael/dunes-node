@@ -8,3 +8,8 @@ export function getApple(name: string, color: Apple["color"]): Apple {
 
   return apple;
 }
+
+export function logStuff(...params: any[]): void {
+  console.log("logging stuff");
+  console.log(...params);
+}

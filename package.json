@@ -22,7 +22,8 @@
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf lib && tsc"
+    "build": "rimraf lib && tsc",
+    "prepublishOnly": "yarn build"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
