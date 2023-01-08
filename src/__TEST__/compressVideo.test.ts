@@ -1,8 +1,9 @@
 import { analyzeVideo, compressVideo } from "../functions";
 import fs from "fs-extra";
+import { join } from "path";
 
-const videoDir = "src/__TEST__/videos";
-const outDir = videoDir + "/out";
+const videoDir = join(__dirname, "/videos");
+const outDir = join(videoDir + "/out");
 
 function checkFileExists(filepath: string): Promise<boolean> {
   return new Promise((resolve) => {
@@ -29,8 +30,8 @@ describe("compressVideo", () => {
   });
 
   it("creates file with provided name", async function () {
-    const src = videoDir + "/b.mp4";
-    const out = outDir + "/b.mp4";
+    const src = join(videoDir, "/b.mp4");
+    const out = join(outDir, "/b.mp4");
     await compressVideo(src, out, {
       compression: 63,
     });
@@ -41,8 +42,8 @@ describe("compressVideo", () => {
   });
 
   it("creates working video", async function () {
-    const src = videoDir + "/b.mp4";
-    const out = outDir + "/b.mp4";
+    const src = join(videoDir, "/b.mp4");
+    const out = join(outDir, "/b.mp4");
     await compressVideo(src, out, {
       compression: 63,
     });
