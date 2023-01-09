@@ -25,6 +25,7 @@
     "prebuild": "rimraf lib",
     "build": "tsc",
     "test": "jest",
+    "test:linux": "docker build . -t dunes_node_tests_linux",
     "test:watch": "jest --watch",
     "prepublishOnly": "yarn build && yarn test",
     "preversion": "yarn build",

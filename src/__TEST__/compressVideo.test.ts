@@ -31,7 +31,7 @@ describe("compressVideo", () => {
 
   it("creates file with provided name", async function () {
     const src = join(videoDir, "/b.mp4");
-    const out = join(outDir, "/b.mp4");
+    const out = join(outDir, "/b-test1.mp4");
     await compressVideo(src, out, {
       compression: 63,
     });
@@ -43,7 +43,7 @@ describe("compressVideo", () => {
 
   it("creates working video", async function () {
     const src = join(videoDir, "/b.mp4");
-    const out = join(outDir, "/b.mp4");
+    const out = join(outDir, "/b-test2.mp4");
     await compressVideo(src, out, {
       compression: 63,
     });

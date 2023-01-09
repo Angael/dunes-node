@@ -7,12 +7,17 @@ export async function compressVideo(
   options: CompressionOptions
 ): Promise<void> {
   const args = [
-    `-i "${srcPath}"`,
-    `-vf scale=${options.width ?? -1}:${options.height ?? -1}`,
-    "-c:v libvpx-vp9",
-    `-crf ${options.compression}`,
-    "-b:v 0",
-    `"${outPath}"`,
+    `-i`,
+    srcPath,
+    `-vf`,
+    `scale=${options.width ?? -1}:${options.height ?? -1}`,
+    "-c:v",
+    "libvpx-vp9",
+    `-crf`,
+    `${options.compression}`,
+    "-b:v",
+    "0",
+    outPath,
   ];
 
   await runFfmpeg(args, options);

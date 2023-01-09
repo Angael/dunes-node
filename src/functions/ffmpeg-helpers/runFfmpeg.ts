@@ -16,9 +16,7 @@ export const runFfmpeg = (
       onStart("ffmpeg " + args.join(" "));
     }
 
-    const ffmpegConsole = child.spawn(ffmpegStatic as string, args, {
-      windowsVerbatimArguments: true,
-    });
+    const ffmpegConsole = child.spawn(ffmpegStatic as string, args);
 
     ffmpegConsole.stderr.on("data", (data: Buffer) => {
       const text = data.toString();
