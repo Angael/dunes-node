@@ -10,6 +10,12 @@ type IntRange<F extends number, T extends number> = Exclude<
   Enumerate<F>
 >;
 
+export type ThumbnailOptions = {
+  width: number;
+  height: number;
+  time?: number;
+} & RunFfmpegOptions;
+
 export type CompressionOptions = {
   compression: IntRange<0, 64>;
   width?: number;

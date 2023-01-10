@@ -20,5 +20,7 @@ export async function compressVideo(
     outPath,
   ];
 
+  // TODO validate that outpath is a webm
+
   await runFfmpeg(args, options);
 }
