@@ -50,10 +50,10 @@ describe("compressVideo", () => {
 
     const stats = await analyzeVideo(out);
 
-    expect(stats.size).toBeTruthy();
+    expect(stats.sizeBytes).toBeTruthy();
     expect(stats.width).toBeTruthy();
     expect(stats.height).toBeTruthy();
-    expect(stats.bitrate).toBeTruthy();
-    expect(stats.duration).toBeTruthy();
+    expect(stats.bitrateKb).toBeTruthy();
+    expect(stats.durationMs).toBeTruthy();
   });
 });

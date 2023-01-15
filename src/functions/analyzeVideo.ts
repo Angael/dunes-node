@@ -1,30 +1,41 @@
-import ffprobe from "ffprobe";
-import ffprobeStatic from "ffprobe-static";
 import { VideoStats } from "../types";
-import fs from "fs";
+import { runFfprobe } from "./ffprobe-helpers/runFfprobe";
+import { stat } from "fs";
+import {
+  parseBitrate,
+  parseDimensions,
+  parseDurationInMs,
+} from "./ffprobe-helpers/parseFfprobe";
+
+function getFileSize(path: string): Promise<number> {
+  return new Promise((resolve, reject) => {
+    stat(path, (err, stats) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(stats.size);
+      }
+    });
+  });
+}
 
 export async function analyzeVideo(path: string): Promise<VideoStats> {
-  const { streams } = await ffprobe(path, { path: ffprobeStatic.path });
+  const [ffprobeOutput, sizeBytes] = await Promise.all([
+    runFfprobe(path),
+    getFileSize(path),
+  ]);
 
-  const size = await new Promise<number>((resolve, reject) => {
-    fs.stat(path, (err, stats) => (err ? reject(err) : resolve(stats.size)));
-  });
+  const durationMs = parseDurationInMs(ffprobeOutput);
 
-  const videoStreams = streams.filter(
-    (stream) => stream.codec_type === "video"
-  );
+  const bitrateKb = parseBitrate(ffprobeOutput);
 
-  if (videoStreams.length !== 1) {
-    throw new Error(`${videoStreams.length} video streams found`);
-  }
-
-  const videoStream = streams[0];
+  const { width, height } = parseDimensions(ffprobeOutput);
 
   return {
-    bitrate: Number(videoStream.bit_rate),
-    duration: Number(videoStream.duration),
-    height: Number(videoStream.height),
-    width: Number(videoStream.width),
-    size,
+    width,
+    height,
+    durationMs,
+    bitrateKb,
+    sizeBytes,
   };
 }

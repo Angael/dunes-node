@@ -23,11 +23,11 @@ export type CompressionOptions = {
 } & RunFfmpegOptions;
 
 export type VideoStats = {
-  bitrate: number;
   height: number;
   width: number;
-  duration: number;
-  size: number;
+  bitrateKb: number;
+  durationMs: number;
+  sizeBytes: number;
 };
 
 export type RunFfmpegOptions = {
