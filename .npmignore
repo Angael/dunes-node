@@ -2,3 +2,4 @@ __TEST__
 .idea
 Dockerfile
 .dockerignore
+.github
