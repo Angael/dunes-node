@@ -11,7 +11,7 @@ import { runFfmpeg } from "./ffmpeg-helpers/runFfmpeg";
  * @param outPath Path to webp thumbnail that you want to create
  * @param options Options for creating thumbnail
  *
- * @example
+ * @example Create thumbnail with resolution 32x32
  * ```ts
  * import { createThumbnail } from '@vanih/dunes-node';
  *

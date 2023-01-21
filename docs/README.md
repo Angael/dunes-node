@@ -110,7 +110,7 @@ ___
 ```ts
 import { analyzeVideo } from '@vanih/dunes-node';
 
-analyzeVideo('./video.mp4');
+const result = await analyzeVideo('./video.mp4');
 ```
 
 #### Parameters
@@ -137,6 +137,7 @@ ___
 
 **`Example`**
 
+Create compressed copy of video, with the worst possible quality and best size. Resolution is kept original
 ```ts
 import { compressVideo } from '@vanih/dunes-node';
 
@@ -181,6 +182,7 @@ When ffmpeg encounters error
 
 **`Example`**
 
+Create thumbnail with resolution 32x32
 ```ts
 import { createThumbnail } from '@vanih/dunes-node';
 

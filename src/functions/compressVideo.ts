@@ -4,7 +4,7 @@ import { runFfmpeg } from "./ffmpeg-helpers/runFfmpeg";
 /**
  * @returns Promise that resolves when compression ends.
  *
- * @example
+ * @example Create compressed copy of video, with the worst possible quality and best size. Resolution is kept original
  * ```ts
  * import { compressVideo } from '@vanih/dunes-node';
  *

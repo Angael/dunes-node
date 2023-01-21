@@ -28,7 +28,7 @@ function getFileSize(path: string): Promise<number> {
  * ```ts
  * import { analyzeVideo } from '@vanih/dunes-node';
  *
- * analyzeVideo('./video.mp4');
+ * const result = await analyzeVideo('./video.mp4');
  * ```
  */
 export async function analyzeVideo(path: string): Promise<VideoStats> {
