@@ -1,6 +1,25 @@
 import { CompressionOptions } from "../types";
 import { runFfmpeg } from "./ffmpeg-helpers/runFfmpeg";
 
+/**
+ * @returns Promise that resolves when compression ends.
+ *
+ * @example
+ * ```ts
+ * import { compressVideo } from '@vanih/dunes-node';
+ *
+ * const src = './video_in.mp4';
+ * const out = './video_out.webm';
+ * await compressVideo(src, out, {
+ *     compression: 63,
+ * });
+ * ```
+ * @param srcPath Path to existing original video
+ * @param outPath Path where compressed video should be saved. Currently only supports webm files.
+ * @param options Compression options to use when compressing the video
+ *
+ * @throws When ffmpeg encounters an error
+ */
 export async function compressVideo(
   srcPath: string,
   outPath: string,

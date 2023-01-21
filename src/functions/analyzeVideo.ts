@@ -19,6 +19,18 @@ function getFileSize(path: string): Promise<number> {
   });
 }
 
+/**
+ * @param path Path to video
+ *
+ * @returns Promise with video stats of video from supplied path.
+ *
+ * @example
+ * ```ts
+ * import { analyzeVideo } from '@vanih/dunes-node';
+ *
+ * analyzeVideo('./video.mp4');
+ * ```
+ */
 export async function analyzeVideo(path: string): Promise<VideoStats> {
   const [ffprobeOutput, sizeBytes] = await Promise.all([
     runFfprobe(path),

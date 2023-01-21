@@ -33,10 +33,10 @@ export type VideoStats = {
 export type RunFfmpegOptions = {
   shouldOverwrite?: boolean;
   onStart?: (command: string) => void;
-  onProgress?: (data: FfmpegDataRaw) => void;
+  onProgress?: (data: FfmpegData) => void;
 };
 
-export type FfmpegDataRaw = {
+export type FfmpegData = {
   rawString: string;
   frame: number;
   fps: number;

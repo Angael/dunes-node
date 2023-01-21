@@ -1,4 +1,4 @@
-import { FfmpegDataRaw } from "../../types";
+import { FfmpegData } from "../../types";
 
 const bitrateMultipliers = new Map<string, number>([
   ["kbits/s", 1000],
@@ -44,7 +44,7 @@ const getSizeToNumber = (match: RegExpMatchArray): number => {
   }
 };
 
-export const parseDataString = (str: string): FfmpegDataRaw => {
+export const parseDataString = (str: string): FfmpegData => {
   const frameMatch = str.match(/frame=\s*(\d+)/);
   const frame = Number(frameMatch?.[1]) || 0;
 

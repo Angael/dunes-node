@@ -3,7 +3,12 @@ NPM library for easy video compression.
 
 Uses `ffmpeg` and `ffprobe`
 
-## Workflow
+## Docs
+
+[Library documentation](docs/README.md)
+
+
+## Development workflow
 
 1. Write code
 2. Commit & Push
