@@ -63,6 +63,11 @@ export async function compressVideo(
     args.push("-b:v", Math.round(options.bitrateKbs) + "K");
   }
 
+  const audioBitrate = options.audioBitrateKbs
+    ? Math.round(options.audioBitrateKbs) + "K"
+    : "96k";
+  args.push("-c:a", "libopus", "-b:a", audioBitrate);
+
   args.push(outPath);
 
   await runFfmpeg(args, options);

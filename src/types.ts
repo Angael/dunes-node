@@ -23,6 +23,7 @@ export type CompressionOptions = {
   bitrateKbs?: number;
   minBitrateKbs?: number;
   maxBitrateKbs?: number;
+  audioBitrateKbs?: number;
 } & RunFfmpegOptions;
 
 export type VideoStats = {
