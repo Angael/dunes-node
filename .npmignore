@@ -4,3 +4,6 @@ Dockerfile
 .dockerignore
 .github
 docs
+tsconfig.json
+jest.config.js
+README.md
