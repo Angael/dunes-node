@@ -12,7 +12,7 @@ import path from "path";
  * const src = './video_in.mp4';
  * const out = './video_out.webm';
  * await compressVideo(src, out, {
- *     compression: 63,
+ *     crf: 63,
  * });
  * ```
  * @param srcPath Path to existing original video
@@ -33,16 +33,34 @@ export async function compressVideo(
   const args = [`-i`, srcPath];
 
   if (options.width || options.height) {
-    args.push(`-vf`, `scale=${options.width ?? -1}:${options.height ?? -1}`);
+    const ensureDisible2 = (num: number | undefined) =>
+      num && (num % 2 ? num + 1 : num);
+
+    const width = Math.round(ensureDisible2(options.width) ?? -1);
+    const height = Math.round(ensureDisible2(options.height) ?? -1);
+
+    args.push(`-vf`, `scale=${width}:${height}`);
   }
 
   args.push("-c:v", "libvpx-vp9");
 
-  if (options.compression) {
-    args.push(`-crf`, `${options.compression}`, "-b:v", "0");
-  } else if (options.bitrateKbs) {
-    const bitrate: string = Math.round(options.bitrateKbs) + "K";
-    args.push("-b:v", bitrate);
+  if (options.minBitrateKbs) {
+    args.push(`-minrate`, `${Math.round(options.minBitrateKbs)}K`);
+  }
+  if (options.maxBitrateKbs) {
+    args.push(`-maxrate`, `${Math.round(options.maxBitrateKbs)}K`);
+  }
+
+  if (options.crf !== undefined) {
+    args.push(`-crf`, `${options.crf}`, "-b:v", "0");
+
+    if (!options.bitrateKbs) {
+      args.push("-b:v", "0");
+    }
+  }
+
+  if (options.bitrateKbs) {
+    args.push("-b:v", Math.round(options.bitrateKbs) + "K");
   }
 
   args.push(outPath);

@@ -16,20 +16,14 @@ export type ThumbnailOptions = {
   time?: number;
 } & RunFfmpegOptions;
 
-type CRF = {
-  compression: IntRange<0, 64>;
-  bitrateKbs?: never;
-};
-type Bitrate = {
-  compression?: never;
-  bitrateKbs: number;
-};
-
 export type CompressionOptions = {
   width?: number;
   height?: number;
-} & RunFfmpegOptions &
-  (CRF | Bitrate);
+  crf?: IntRange<0, 64>;
+  bitrateKbs?: number;
+  minBitrateKbs?: number;
+  maxBitrateKbs?: number;
+} & RunFfmpegOptions;
 
 export type VideoStats = {
   height: number;

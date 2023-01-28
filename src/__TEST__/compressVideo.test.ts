@@ -35,7 +35,7 @@ describe("compressVideo", () => {
 
     await expect(
       compressVideo(src, out, {
-        compression: 63,
+        crf: 63,
       })
     ).rejects.toBeTruthy();
   });
@@ -44,7 +44,7 @@ describe("compressVideo", () => {
     const src = join(videoDir, "/b.mp4");
     const out = join(outDir, "/b-test2.webm");
     await compressVideo(src, out, {
-      compression: 63,
+      crf: 63,
     });
 
     const exists = await checkFileExists(out);
@@ -64,11 +64,38 @@ describe("compressVideo", () => {
     expect(exists).toEqual(true);
   });
 
+  it("works with Constrained Quality", async function () {
+    const src = join(videoDir, "/b.mp4");
+    const out = join(outDir, "/b-test Constrained Quality.webm");
+    await compressVideo(src, out, {
+      bitrateKbs: 100,
+      crf: 0,
+    });
+
+    const exists = await checkFileExists(out);
+
+    expect(exists).toEqual(true);
+  });
+
+  it("works with Variable Bitrate", async function () {
+    const src = join(videoDir, "/b.mp4");
+    const out = join(outDir, "/b-test Variable Bitrate.webm");
+    await compressVideo(src, out, {
+      minBitrateKbs: 100,
+      maxBitrateKbs: 200,
+      bitrateKbs: 150,
+    });
+
+    const exists = await checkFileExists(out);
+
+    expect(exists).toEqual(true);
+  });
+
   it("creates working video", async function () {
     const src = join(videoDir, "/b.mp4");
     const out = join(outDir, "/b-test4.webm");
     await compressVideo(src, out, {
-      compression: 63,
+      crf: 63,
     });
 
     const stats = await analyzeVideo(out);

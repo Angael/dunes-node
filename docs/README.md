@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[types.ts:28](https://github.com/Angael/dunes-node/blob/0cff71b/src/types.ts#L28)
+[types.ts:28](https://github.com/Angael/dunes-node/blob/0a3f97f/src/types.ts#L28)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[types.ts:48](https://github.com/Angael/dunes-node/blob/0cff71b/src/types.ts#L48)
+[types.ts:48](https://github.com/Angael/dunes-node/blob/0a3f97f/src/types.ts#L48)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[types.ts:42](https://github.com/Angael/dunes-node/blob/0cff71b/src/types.ts#L42)
+[types.ts:42](https://github.com/Angael/dunes-node/blob/0a3f97f/src/types.ts#L42)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[types.ts:13](https://github.com/Angael/dunes-node/blob/0cff71b/src/types.ts#L13)
+[types.ts:13](https://github.com/Angael/dunes-node/blob/0a3f97f/src/types.ts#L13)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[types.ts:34](https://github.com/Angael/dunes-node/blob/0cff71b/src/types.ts#L34)
+[types.ts:34](https://github.com/Angael/dunes-node/blob/0a3f97f/src/types.ts#L34)
 
 ## Functions
 
@@ -127,7 +127,7 @@ Promise with video stats of video from supplied path.
 
 #### Defined in
 
-[functions/analyzeVideo.ts:34](https://github.com/Angael/dunes-node/blob/0cff71b/src/functions/analyzeVideo.ts#L34)
+[functions/analyzeVideo.ts:34](https://github.com/Angael/dunes-node/blob/0a3f97f/src/functions/analyzeVideo.ts#L34)
 
 ___
 
@@ -168,7 +168,7 @@ Promise that resolves when compression ends.
 
 #### Defined in
 
-[functions/compressVideo.ts:24](https://github.com/Angael/dunes-node/blob/0cff71b/src/functions/compressVideo.ts#L24)
+[functions/compressVideo.ts:24](https://github.com/Angael/dunes-node/blob/0a3f97f/src/functions/compressVideo.ts#L24)
 
 ___
 
@@ -210,4 +210,4 @@ Promise that resolves when thumbnail is created
 
 #### Defined in
 
-[functions/createThumbnail.ts:27](https://github.com/Angael/dunes-node/blob/0cff71b/src/functions/createThumbnail.ts#L27)
+[functions/createThumbnail.ts:27](https://github.com/Angael/dunes-node/blob/0a3f97f/src/functions/createThumbnail.ts#L27)
