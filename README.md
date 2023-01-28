@@ -1,4 +1,6 @@
-# dunes-node
+# dunes-node 
+[![Test and build](https://github.com/Angael/dunes-node/actions/workflows/node.js.yml/badge.svg)](https://github.com/Angael/dunes-node/actions/workflows/node.js.yml)
+
 NPM library for easy video compression.
 
 Uses `ffmpeg` and `ffprobe`
