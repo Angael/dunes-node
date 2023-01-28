@@ -29,9 +29,20 @@ describe("compressVideo", () => {
     fs.rmdirSync(outDir);
   });
 
-  it("creates file with provided name", async function () {
+  it("will throw when out is not webm file", async function () {
     const src = join(videoDir, "/b.mp4");
     const out = join(outDir, "/b-test1.mp4");
+
+    await expect(
+      compressVideo(src, out, {
+        compression: 63,
+      })
+    ).rejects.toBeTruthy();
+  });
+
+  it("creates file with provided name", async function () {
+    const src = join(videoDir, "/b.mp4");
+    const out = join(outDir, "/b-test2.webm");
     await compressVideo(src, out, {
       compression: 63,
     });
@@ -41,9 +52,21 @@ describe("compressVideo", () => {
     expect(exists).toEqual(true);
   });
 
+  it("creates file with bitrate", async function () {
+    const src = join(videoDir, "/b.mp4");
+    const out = join(outDir, "/b-test3.webm");
+    await compressVideo(src, out, {
+      bitrateKbs: 300,
+    });
+
+    const exists = await checkFileExists(out);
+
+    expect(exists).toEqual(true);
+  });
+
   it("creates working video", async function () {
     const src = join(videoDir, "/b.mp4");
-    const out = join(outDir, "/b-test2.mp4");
+    const out = join(outDir, "/b-test4.webm");
     await compressVideo(src, out, {
       compression: 63,
     });

@@ -22,11 +22,11 @@
 
 ### CompressionOptions
 
-Ƭ **CompressionOptions**: { `compression`: `IntRange`<``0``, ``64``\> ; `height?`: `number` ; `width?`: `number`  } & [`RunFfmpegOptions`](README.md#runffmpegoptions)
+Ƭ **CompressionOptions**: { `height?`: `number` ; `width?`: `number`  } & [`RunFfmpegOptions`](README.md#runffmpegoptions) & `CRF` \| `Bitrate`
 
 #### Defined in
 
-[types.ts:19](https://github.com/Angael/dunes-node/blob/5eb170f/src/types.ts#L19)
+[types.ts:28](https://github.com/Angael/dunes-node/blob/0cff71b/src/types.ts#L28)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[types.ts:39](https://github.com/Angael/dunes-node/blob/5eb170f/src/types.ts#L39)
+[types.ts:48](https://github.com/Angael/dunes-node/blob/0cff71b/src/types.ts#L48)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[types.ts:33](https://github.com/Angael/dunes-node/blob/5eb170f/src/types.ts#L33)
+[types.ts:42](https://github.com/Angael/dunes-node/blob/0cff71b/src/types.ts#L42)
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[types.ts:13](https://github.com/Angael/dunes-node/blob/5eb170f/src/types.ts#L13)
+[types.ts:13](https://github.com/Angael/dunes-node/blob/0cff71b/src/types.ts#L13)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[types.ts:25](https://github.com/Angael/dunes-node/blob/5eb170f/src/types.ts#L25)
+[types.ts:34](https://github.com/Angael/dunes-node/blob/0cff71b/src/types.ts#L34)
 
 ## Functions
 
@@ -127,7 +127,7 @@ Promise with video stats of video from supplied path.
 
 #### Defined in
 
-[functions/analyzeVideo.ts:34](https://github.com/Angael/dunes-node/blob/5eb170f/src/functions/analyzeVideo.ts#L34)
+[functions/analyzeVideo.ts:34](https://github.com/Angael/dunes-node/blob/0cff71b/src/functions/analyzeVideo.ts#L34)
 
 ___
 
@@ -168,7 +168,7 @@ Promise that resolves when compression ends.
 
 #### Defined in
 
-[functions/compressVideo.ts:23](https://github.com/Angael/dunes-node/blob/5eb170f/src/functions/compressVideo.ts#L23)
+[functions/compressVideo.ts:24](https://github.com/Angael/dunes-node/blob/0cff71b/src/functions/compressVideo.ts#L24)
 
 ___
 
@@ -210,4 +210,4 @@ Promise that resolves when thumbnail is created
 
 #### Defined in
 
-[functions/createThumbnail.ts:27](https://github.com/Angael/dunes-node/blob/5eb170f/src/functions/createThumbnail.ts#L27)
+[functions/createThumbnail.ts:27](https://github.com/Angael/dunes-node/blob/0cff71b/src/functions/createThumbnail.ts#L27)

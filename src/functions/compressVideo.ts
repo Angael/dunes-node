@@ -1,5 +1,6 @@
 import { CompressionOptions } from "../types";
 import { runFfmpeg } from "./ffmpeg-helpers/runFfmpeg";
+import path from "path";
 
 /**
  * @returns Promise that resolves when compression ends.
@@ -25,21 +26,26 @@ export async function compressVideo(
   outPath: string,
   options: CompressionOptions
 ): Promise<void> {
-  const args = [
-    `-i`,
-    srcPath,
-    `-vf`,
-    `scale=${options.width ?? -1}:${options.height ?? -1}`,
-    "-c:v",
-    "libvpx-vp9",
-    `-crf`,
-    `${options.compression}`,
-    "-b:v",
-    "0",
-    outPath,
-  ];
+  if (path.extname(outPath) !== ".webm") {
+    throw new Error("Extension must be webm");
+  }
 
-  // TODO validate that outpath is a webm
+  const args = [`-i`, srcPath];
+
+  if (options.width || options.height) {
+    args.push(`-vf`, `scale=${options.width ?? -1}:${options.height ?? -1}`);
+  }
+
+  args.push("-c:v", "libvpx-vp9");
+
+  if (options.compression) {
+    args.push(`-crf`, `${options.compression}`, "-b:v", "0");
+  } else if (options.bitrateKbs) {
+    const bitrate: string = Math.round(options.bitrateKbs) + "K";
+    args.push("-b:v", bitrate);
+  }
+
+  args.push(outPath);
 
   await runFfmpeg(args, options);
 }
