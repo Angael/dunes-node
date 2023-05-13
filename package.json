@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "ffmpeg-static": "^5.1.0",
-    "ffprobe-static": "^3.1.0"
+    "ffprobe-static": "^3.1.0",
+    "tslib": "^2.5.0"
   }
 }
