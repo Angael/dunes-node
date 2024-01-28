@@ -50,3 +50,8 @@ export type FfmpegData = {
   bitrate: number;
   speed: number;
 };
+
+export type CutOptions = {
+  startTimeMs: number;
+  endTimeMs: number;
+} & RunFfmpegOptions;
