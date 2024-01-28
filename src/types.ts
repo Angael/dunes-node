@@ -54,4 +54,5 @@ export type FfmpegData = {
 export type CutOptions = {
   startTimeMs: number;
   endTimeMs: number;
+  precise?: boolean; // Should recode video to ensure exact start and end time
 } & RunFfmpegOptions;
