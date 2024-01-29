@@ -8,7 +8,7 @@ export const cutVideo = async (
 ) => {
   const { startTimeMs, endTimeMs } = options;
 
-  const command = [
+  const args = [
     "-ss",
     `${startTimeMs / 1000}`,
     "-i",
@@ -20,7 +20,5 @@ export const cutVideo = async (
     outPath,
   ];
 
-  throw new Error("not implemented yet");
-
-  await runFfmpeg(command, options);
+  await runFfmpeg(args, options);
 };

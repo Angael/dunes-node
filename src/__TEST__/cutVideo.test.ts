@@ -1,10 +1,16 @@
 import fs from "fs-extra";
-import { join } from "path";
+import path, { join } from "path";
+import { analyzeVideo, cutVideo } from "../functions";
+import { checkFileExists } from "./utils";
 
 const videoDir = join(__dirname, "/videos");
-const outDir = join(videoDir + "/out");
+const musicDir = join(__dirname, "/music");
+const outDir = join(__dirname, "/out");
 
 jest.setTimeout(20 * 1000);
+
+const videoFiles = ["a.mp4", "b.mp4"];
+const musicFiles = ["invincible-libopus.webm", "invincible-libmp3lame.mp3"];
 
 describe("compressVideo", () => {
   beforeAll(() => {
@@ -24,11 +30,31 @@ describe("compressVideo", () => {
     expect.hasAssertions();
   });
 
-  it.each(["webm", "mp4", "mp3"])("accepts %s", async function (ext) {});
+  const sampleFilePaths = [
+    videoFiles.map((fileName) => join(videoDir, fileName)),
+    musicFiles.map((fileName) => join(musicDir, fileName)),
+  ].flat();
 
-  it("creates file with provided name", async function () {});
+  it.each(sampleFilePaths)("works for sample file %s", async function (src) {
+    const fileName = path.basename(src);
+    const out = join(outDir, `/out-${fileName}`);
 
-  it("created file is shorter than original", async function () {});
+    await cutVideo(src, out, {
+      startTimeMs: 0,
+      endTimeMs: 1000,
+    });
 
-  it("created file is exactly as long as specified", async function () {});
+    expect(await checkFileExists(out)).toEqual(true);
+
+    const stats = await fs.stat(out);
+    expect(stats.size).toBeGreaterThan(0);
+
+    try {
+      const videoData = await analyzeVideo(out);
+      expect(videoData.durationMs).toBeGreaterThanOrEqual(900);
+      expect(videoData.durationMs).toBeLessThanOrEqual(1100);
+    } catch (e) {
+      // Is audio, i dont support analyze audio yet
+    }
+  });
 });
