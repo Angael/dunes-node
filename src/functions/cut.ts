@@ -1,7 +1,7 @@
 import { CutOptions } from "../types";
 import { runFfmpeg } from "./ffmpeg-helpers/runFfmpeg";
 
-export const cutVideo = async (
+export const cut = async (
   srcPath: string,
   outPath: string,
   options: CutOptions

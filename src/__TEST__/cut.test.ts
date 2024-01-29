@@ -1,6 +1,6 @@
 import fs from "fs-extra";
 import path, { join } from "path";
-import { analyzeVideo, cutVideo } from "../functions";
+import { analyzeVideo, cut } from "../functions";
 import { checkFileExists } from "./utils";
 
 const videoDir = join(__dirname, "/videos");
@@ -12,7 +12,7 @@ jest.setTimeout(20 * 1000);
 const videoFiles = ["a.mp4", "b.mp4"];
 const musicFiles = ["invincible-libopus.webm", "invincible-libmp3lame.mp3"];
 
-describe("compressVideo", () => {
+describe("cut", () => {
   beforeAll(() => {
     fs.ensureDirSync(outDir);
     fs.emptyDirSync(outDir);
@@ -39,7 +39,7 @@ describe("compressVideo", () => {
     const fileName = path.basename(src);
     const out = join(outDir, `/out-${fileName}`);
 
-    await cutVideo(src, out, {
+    await cut(src, out, {
       startTimeMs: 0,
       endTimeMs: 1000,
     });
