@@ -25,6 +25,7 @@ import { runFfmpeg } from "./ffmpeg-helpers/runFfmpeg";
  *
  */
 export async function createThumbnail(
+  ffmpegPath: string,
   srcPath: string,
   outPath: string,
   options: ThumbnailOptions
@@ -44,5 +45,5 @@ export async function createThumbnail(
 
   // TODO validate that outpath is a webm
 
-  await runFfmpeg(args, options);
+  await runFfmpeg(ffmpegPath, args, options);
 }

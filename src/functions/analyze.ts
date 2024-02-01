@@ -7,8 +7,11 @@ import { runFfprobe } from "./ffprobe-helpers/runFfprobe";
  *
  * @returns Promise with stats of audio or video file.
  */
-export async function analyze(path: string): Promise<SimpleAnalysisStats> {
-  const { streams, format } = await runFfprobe(path);
+export async function analyze(
+  ffprobePath: string,
+  path: string
+): Promise<SimpleAnalysisStats> {
+  const { streams, format } = await runFfprobe(ffprobePath, path);
 
   const videoStream = streams.find((stream) => stream.codec_type === "video");
   const video = videoStream

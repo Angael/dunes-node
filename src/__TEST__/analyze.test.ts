@@ -1,9 +1,11 @@
 import { analyze } from "../functions";
 import { SimpleAnalysisStats } from "../types";
 
+const ffprobePath = "ffprobe";
+
 describe("analyze", () => {
   it("should return consistent results - vid a", async function () {
-    expect(await analyze("src/__TEST__/videos/a.mp4")).toEqual({
+    expect(await analyze(ffprobePath, "src/__TEST__/videos/a.mp4")).toEqual({
       bitrateKb: 4879.678,
       durationMs: 29718,
       audio: {
@@ -20,7 +22,7 @@ describe("analyze", () => {
   });
 
   it("should return consistent results - vid b", async function () {
-    expect(await analyze("src/__TEST__/videos/b.mp4")).toEqual({
+    expect(await analyze(ffprobePath, "src/__TEST__/videos/b.mp4")).toEqual({
       bitrateKb: 52.589,
       durationMs: 8000,
       video: {
@@ -39,7 +41,7 @@ describe("analyze", () => {
     "src/__TEST__/videos/d.mp4",
   ])("bitrate and duration is never NaN", async function (path) {
     // This used to happen with ffprobe npm library
-    const result = await analyze(path);
+    const result = await analyze(ffprobePath, path);
     expect(result.bitrateKb).not.toBeNaN();
     expect(result.durationMs).not.toBeNaN();
   });
