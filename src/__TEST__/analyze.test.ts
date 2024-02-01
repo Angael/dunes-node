@@ -1,25 +1,35 @@
 import { analyze } from "../functions";
-import { VideoStats } from "../types";
+import { SimpleAnalysisStats } from "../types";
 
-describe("analyzeVideo", () => {
+describe("analyze", () => {
   it("should return consistent results - vid a", async function () {
     expect(await analyze("src/__TEST__/videos/a.mp4")).toEqual({
-      bitrateKb: 4879,
-      durationMs: 29720,
-      height: 1080,
-      width: 608,
+      bitrateKb: 4879.678,
+      durationMs: 29718,
+      audio: {
+        channels: 2,
+        sampleRate: 48000,
+      },
+      video: {
+        height: 1080,
+        width: 608,
+        fps: 30,
+      },
       sizeBytes: 18126784,
-    } satisfies VideoStats);
+    } satisfies SimpleAnalysisStats);
   });
 
   it("should return consistent results - vid b", async function () {
     expect(await analyze("src/__TEST__/videos/b.mp4")).toEqual({
-      bitrateKb: 52,
+      bitrateKb: 52.589,
       durationMs: 8000,
-      height: 180,
-      width: 240,
+      video: {
+        height: 180,
+        width: 240,
+        fps: 30,
+      },
       sizeBytes: 52589,
-    } satisfies VideoStats);
+    } satisfies SimpleAnalysisStats);
   });
 
   it.each([

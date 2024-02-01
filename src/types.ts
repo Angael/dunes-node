@@ -1,3 +1,5 @@
+export * from "./functions/analyze.type";
+
 type Enumerate<
   N extends number,
   Acc extends number[] = []
@@ -26,9 +28,16 @@ export type CompressionOptions = {
   audioBitrateKbs?: number;
 } & RunFfmpegOptions;
 
-export type VideoStats = {
-  height?: number;
-  width?: number;
+export type SimpleAnalysisStats = {
+  audio?: {
+    sampleRate: number;
+    channels: number;
+  };
+  video?: {
+    fps: number;
+    height: number;
+    width: number;
+  };
   bitrateKb: number;
   durationMs: number;
   sizeBytes: number;
