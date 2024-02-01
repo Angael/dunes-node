@@ -1,6 +1,6 @@
 import fs from "fs-extra";
 import path, { join } from "path";
-import { analyzeVideo, cut } from "../functions";
+import { analyze, cut } from "../functions";
 import { checkFileExists } from "./utils";
 
 const videoDir = join(__dirname, "/videos");
@@ -50,7 +50,7 @@ describe("cut", () => {
     expect(stats.size).toBeGreaterThan(0);
 
     try {
-      const videoData = await analyzeVideo(out);
+      const videoData = await analyze(out);
       expect(videoData.durationMs).toBeGreaterThanOrEqual(900);
       expect(videoData.durationMs).toBeLessThanOrEqual(1100);
     } catch (e) {

@@ -18,14 +18,13 @@ export function parseDurationInMs(ffprobeOutput: string): number {
 
 export function parseDimensions(ffprobeOutput: string) {
   const resMatch = ffprobeOutput.match(/, (\d+)x(\d+)[\s,]/);
-  if (!resMatch) {
-    throw new Error("couldn't find width and height");
-  }
 
-  return {
-    width: Number(resMatch[1]),
-    height: Number(resMatch[2]),
-  };
+  return resMatch
+    ? {
+        width: Number(resMatch[1]),
+        height: Number(resMatch[2]),
+      }
+    : {};
 }
 
 export function parseBitrate(ffprobeOutput: string): number {

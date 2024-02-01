@@ -1,4 +1,4 @@
-import { analyzeVideo, compressVideo } from "../functions";
+import { analyze, compressVideo } from "../functions";
 import fs from "fs-extra";
 import { join } from "path";
 import { checkFileExists } from "./utils";
@@ -91,7 +91,7 @@ describe("compressVideo", () => {
       crf: 63,
     });
 
-    const stats = await analyzeVideo(out);
+    const stats = await analyze(out);
 
     expect(stats.sizeBytes).toBeTruthy();
     expect(stats.width).toBeTruthy();

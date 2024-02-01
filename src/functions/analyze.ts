@@ -31,7 +31,7 @@ function getFileSize(path: string): Promise<number> {
  * const result = await analyzeVideo('./video.mp4');
  * ```
  */
-export async function analyzeVideo(path: string): Promise<VideoStats> {
+export async function analyze(path: string): Promise<VideoStats> {
   const [ffprobeOutput, sizeBytes] = await Promise.all([
     runFfprobe(path),
     getFileSize(path),

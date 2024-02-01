@@ -27,8 +27,8 @@ export type CompressionOptions = {
 } & RunFfmpegOptions;
 
 export type VideoStats = {
-  height: number;
-  width: number;
+  height?: number;
+  width?: number;
   bitrateKb: number;
   durationMs: number;
   sizeBytes: number;

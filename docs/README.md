@@ -7,6 +7,7 @@
 ### Type Aliases
 
 - [CompressionOptions](README.md#compressionoptions)
+- [CutOptions](README.md#cutoptions)
 - [FfmpegData](README.md#ffmpegdata)
 - [RunFfmpegOptions](README.md#runffmpegoptions)
 - [ThumbnailOptions](README.md#thumbnailoptions)
@@ -14,9 +15,10 @@
 
 ### Functions
 
-- [analyzeVideo](README.md#analyzevideo)
+- [analyze](README.md#analyze)
 - [compressVideo](README.md#compressvideo)
 - [createThumbnail](README.md#createthumbnail)
+- [cut](README.md#cut)
 
 ## Type Aliases
 
@@ -26,7 +28,17 @@
 
 #### Defined in
 
-[types.ts:19](https://github.com/Angael/dunes-node/blob/e920472/src/types.ts#L19)
+[types.ts:19](https://github.com/Angael/dunes-node/blob/7fa9395/src/types.ts#L19)
+
+___
+
+### CutOptions
+
+Ƭ **CutOptions**: { `endTimeMs`: `number` ; `precise?`: `boolean` ; `startTimeMs`: `number`  } & [`RunFfmpegOptions`](README.md#runffmpegoptions)
+
+#### Defined in
+
+[types.ts:54](https://github.com/Angael/dunes-node/blob/7fa9395/src/types.ts#L54)
 
 ___
 
@@ -49,7 +61,7 @@ ___
 
 #### Defined in
 
-[types.ts:43](https://github.com/Angael/dunes-node/blob/e920472/src/types.ts#L43)
+[types.ts:43](https://github.com/Angael/dunes-node/blob/7fa9395/src/types.ts#L43)
 
 ___
 
@@ -67,7 +79,7 @@ ___
 
 #### Defined in
 
-[types.ts:37](https://github.com/Angael/dunes-node/blob/e920472/src/types.ts#L37)
+[types.ts:37](https://github.com/Angael/dunes-node/blob/7fa9395/src/types.ts#L37)
 
 ___
 
@@ -77,7 +89,7 @@ ___
 
 #### Defined in
 
-[types.ts:13](https://github.com/Angael/dunes-node/blob/e920472/src/types.ts#L13)
+[types.ts:13](https://github.com/Angael/dunes-node/blob/7fa9395/src/types.ts#L13)
 
 ___
 
@@ -91,19 +103,19 @@ ___
 | :------ | :------ |
 | `bitrateKb` | `number` |
 | `durationMs` | `number` |
-| `height` | `number` |
+| `height?` | `number` |
 | `sizeBytes` | `number` |
-| `width` | `number` |
+| `width?` | `number` |
 
 #### Defined in
 
-[types.ts:29](https://github.com/Angael/dunes-node/blob/e920472/src/types.ts#L29)
+[types.ts:29](https://github.com/Angael/dunes-node/blob/7fa9395/src/types.ts#L29)
 
 ## Functions
 
-### analyzeVideo
+### analyze
 
-▸ **analyzeVideo**(`path`): `Promise`<[`VideoStats`](README.md#videostats)\>
+▸ **analyze**(`path`): `Promise`<[`VideoStats`](README.md#videostats)\>
 
 **`Example`**
 
@@ -127,7 +139,7 @@ Promise with video stats of video from supplied path.
 
 #### Defined in
 
-[functions/analyzeVideo.ts:34](https://github.com/Angael/dunes-node/blob/e920472/src/functions/analyzeVideo.ts#L34)
+[functions/analyze.ts:34](https://github.com/Angael/dunes-node/blob/7fa9395/src/functions/analyze.ts#L34)
 
 ___
 
@@ -168,7 +180,7 @@ Promise that resolves when compression ends.
 
 #### Defined in
 
-[functions/compressVideo.ts:24](https://github.com/Angael/dunes-node/blob/e920472/src/functions/compressVideo.ts#L24)
+[functions/compressVideo.ts:24](https://github.com/Angael/dunes-node/blob/7fa9395/src/functions/compressVideo.ts#L24)
 
 ___
 
@@ -210,4 +222,26 @@ Promise that resolves when thumbnail is created
 
 #### Defined in
 
-[functions/createThumbnail.ts:27](https://github.com/Angael/dunes-node/blob/e920472/src/functions/createThumbnail.ts#L27)
+[functions/createThumbnail.ts:27](https://github.com/Angael/dunes-node/blob/7fa9395/src/functions/createThumbnail.ts#L27)
+
+___
+
+### cut
+
+▸ **cut**(`srcPath`, `outPath`, `options`): `Promise`<`void`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `srcPath` | `string` |
+| `outPath` | `string` |
+| `options` | [`CutOptions`](README.md#cutoptions) |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[functions/cut.ts:4](https://github.com/Angael/dunes-node/blob/7fa9395/src/functions/cut.ts#L4)
