@@ -2,6 +2,7 @@ import { CutOptions } from "../types";
 import { runFfmpeg } from "./ffmpeg-helpers/runFfmpeg";
 
 export const cut = async (
+  ffmpegPath: string,
   srcPath: string,
   outPath: string,
   options: CutOptions
@@ -20,5 +21,5 @@ export const cut = async (
     outPath,
   ];
 
-  await runFfmpeg(args, options);
+  await runFfmpeg(ffmpegPath, args, options);
 };

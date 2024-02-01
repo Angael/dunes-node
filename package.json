@@ -1,6 +1,6 @@
 {
   "name": "@vanih/dunes-node",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "NPM package for compressing videos using FFMPEG and FFPROBE",
   "keywords": [
     "ffmpeg",
@@ -34,7 +34,6 @@
     "generate-docs:watch": "typedoc --watch --plugin typedoc-plugin-markdown --readme none --out docs src/index.ts"
   },
   "devDependencies": {
-    "@types/ffprobe-static": "^2.0.1",
     "@types/fs-extra": "^9.0.13",
     "@types/jest": "^29.2.5",
     "@types/node": "^18.11.18",
@@ -51,8 +50,6 @@
     "node": ">=v18.12.1"
   },
   "dependencies": {
-    "ffmpeg-static": "^5.1.0",
-    "ffprobe-static": "^3.1.0",
     "tslib": "^2.5.0"
   }
 }

@@ -32,7 +32,7 @@ describe("createThumbnail", () => {
   it("creates file with provided name", async function () {
     const src = join(videoDir, "/b.mp4");
     const out = join(outDir, "/b-test1.webp");
-    await createThumbnail(src, out, {
+    await createThumbnail("ffmpeg", src, out, {
       width: 32,
       height: 32,
     });

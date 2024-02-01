@@ -3,7 +3,7 @@
 
 NPM library for easy video compression.
 
-Uses `ffmpeg` and `ffprobe`
+Requires user to have installed `ffmpeg` and `ffprobe` and know path to those binaries.
 
 ## Docs
 

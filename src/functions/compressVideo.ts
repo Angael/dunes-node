@@ -22,6 +22,7 @@ import path from "path";
  * @throws When ffmpeg encounters an error
  */
 export async function compressVideo(
+  ffprobePath: string,
   srcPath: string,
   outPath: string,
   options: CompressionOptions
@@ -70,5 +71,5 @@ export async function compressVideo(
 
   args.push(outPath);
 
-  await runFfmpeg(args, options);
+  await runFfmpeg(ffprobePath, args, options);
 }

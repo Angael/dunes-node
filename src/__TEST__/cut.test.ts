@@ -39,7 +39,7 @@ describe("cut", () => {
     const fileName = path.basename(src);
     const out = join(outDir, `/out-${fileName}`);
 
-    await cut(src, out, {
+    await cut("ffmpeg", src, out, {
       startTimeMs: 0,
       endTimeMs: 1000,
     });
@@ -50,7 +50,7 @@ describe("cut", () => {
     expect(stats.size).toBeGreaterThan(0);
 
     try {
-      const videoData = await analyze(out);
+      const videoData = await analyze("ffprobe", out);
       expect(videoData.durationMs).toBeGreaterThanOrEqual(900);
       expect(videoData.durationMs).toBeLessThanOrEqual(1100);
     } catch (e) {
