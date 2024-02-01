@@ -94,8 +94,8 @@ describe("compressVideo", () => {
     const stats = await analyze(out);
 
     expect(stats.sizeBytes).toBeTruthy();
-    expect(stats.width).toBeTruthy();
-    expect(stats.height).toBeTruthy();
+    expect(stats.video?.width).toBeTruthy();
+    expect(stats.video?.height).toBeTruthy();
     expect(stats.bitrateKb).toBeTruthy();
     expect(stats.durationMs).toBeTruthy();
   });
