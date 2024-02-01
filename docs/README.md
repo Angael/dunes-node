@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[types.ts:19](https://github.com/Angael/dunes-node/blob/7fa9395/src/types.ts#L19)
+[types.ts:19](https://github.com/Angael/dunes-node/blob/e9b303e/src/types.ts#L19)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[types.ts:54](https://github.com/Angael/dunes-node/blob/7fa9395/src/types.ts#L54)
+[types.ts:54](https://github.com/Angael/dunes-node/blob/e9b303e/src/types.ts#L54)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[types.ts:43](https://github.com/Angael/dunes-node/blob/7fa9395/src/types.ts#L43)
+[types.ts:43](https://github.com/Angael/dunes-node/blob/e9b303e/src/types.ts#L43)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[types.ts:37](https://github.com/Angael/dunes-node/blob/7fa9395/src/types.ts#L37)
+[types.ts:37](https://github.com/Angael/dunes-node/blob/e9b303e/src/types.ts#L37)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[types.ts:13](https://github.com/Angael/dunes-node/blob/7fa9395/src/types.ts#L13)
+[types.ts:13](https://github.com/Angael/dunes-node/blob/e9b303e/src/types.ts#L13)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[types.ts:29](https://github.com/Angael/dunes-node/blob/7fa9395/src/types.ts#L29)
+[types.ts:29](https://github.com/Angael/dunes-node/blob/e9b303e/src/types.ts#L29)
 
 ## Functions
 
@@ -139,7 +139,7 @@ Promise with video stats of video from supplied path.
 
 #### Defined in
 
-[functions/analyze.ts:34](https://github.com/Angael/dunes-node/blob/7fa9395/src/functions/analyze.ts#L34)
+[functions/analyze.ts:34](https://github.com/Angael/dunes-node/blob/e9b303e/src/functions/analyze.ts#L34)
 
 ___
 
@@ -180,7 +180,7 @@ Promise that resolves when compression ends.
 
 #### Defined in
 
-[functions/compressVideo.ts:24](https://github.com/Angael/dunes-node/blob/7fa9395/src/functions/compressVideo.ts#L24)
+[functions/compressVideo.ts:24](https://github.com/Angael/dunes-node/blob/e9b303e/src/functions/compressVideo.ts#L24)
 
 ___
 
@@ -222,7 +222,7 @@ Promise that resolves when thumbnail is created
 
 #### Defined in
 
-[functions/createThumbnail.ts:27](https://github.com/Angael/dunes-node/blob/7fa9395/src/functions/createThumbnail.ts#L27)
+[functions/createThumbnail.ts:27](https://github.com/Angael/dunes-node/blob/e9b303e/src/functions/createThumbnail.ts#L27)
 
 ___
 
@@ -244,4 +244,4 @@ ___
 
 #### Defined in
 
-[functions/cut.ts:4](https://github.com/Angael/dunes-node/blob/7fa9395/src/functions/cut.ts#L4)
+[functions/cut.ts:4](https://github.com/Angael/dunes-node/blob/e9b303e/src/functions/cut.ts#L4)
