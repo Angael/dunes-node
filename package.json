@@ -1,6 +1,6 @@
 {
   "name": "@vanih/dunes-node",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "NPM package for compressing videos using FFMPEG and FFPROBE",
   "keywords": [
     "ffmpeg",
