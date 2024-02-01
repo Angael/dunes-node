@@ -1,17 +1,10 @@
-import { analyzeVideo, compressVideo } from "../functions";
+import { analyze, compressVideo } from "../functions";
 import fs from "fs-extra";
 import { join } from "path";
+import { checkFileExists } from "./utils";
 
 const videoDir = join(__dirname, "/videos");
 const outDir = join(videoDir + "/out");
-
-function checkFileExists(filepath: string): Promise<boolean> {
-  return new Promise((resolve) => {
-    fs.access(filepath, fs.constants.F_OK, (error) => {
-      resolve(!error);
-    });
-  });
-}
 
 jest.setTimeout(20 * 1000);
 
@@ -98,11 +91,11 @@ describe("compressVideo", () => {
       crf: 63,
     });
 
-    const stats = await analyzeVideo(out);
+    const stats = await analyze(out);
 
     expect(stats.sizeBytes).toBeTruthy();
-    expect(stats.width).toBeTruthy();
-    expect(stats.height).toBeTruthy();
+    expect(stats.video?.width).toBeTruthy();
+    expect(stats.video?.height).toBeTruthy();
     expect(stats.bitrateKb).toBeTruthy();
     expect(stats.durationMs).toBeTruthy();
   });
