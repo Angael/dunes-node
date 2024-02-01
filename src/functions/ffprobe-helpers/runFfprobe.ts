@@ -7,7 +7,7 @@ export function runFfprobe(filepath: string): Promise<FfprobeOutput> {
     exec(
       `${ffprobeStatic.path} -v quiet -print_format json -show_format -show_streams ${filepath}`,
       {},
-      (error, stdout, stderr) => {
+      (error, stdout) => {
         if (error) {
           reject(error);
         } else {
