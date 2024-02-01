@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[types.ts:21](https://github.com/Angael/dunes-node/blob/5a5044b/src/types.ts#L21)
+[types.ts:21](https://github.com/Angael/dunes-node/blob/d38da99/src/types.ts#L21)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[types.ts:63](https://github.com/Angael/dunes-node/blob/5a5044b/src/types.ts#L63)
+[types.ts:63](https://github.com/Angael/dunes-node/blob/d38da99/src/types.ts#L63)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[types.ts:52](https://github.com/Angael/dunes-node/blob/5a5044b/src/types.ts#L52)
+[types.ts:52](https://github.com/Angael/dunes-node/blob/d38da99/src/types.ts#L52)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[functions/analyze.type.ts:79](https://github.com/Angael/dunes-node/blob/5a5044b/src/functions/analyze.type.ts#L79)
+[functions/analyze.type.ts:79](https://github.com/Angael/dunes-node/blob/d38da99/src/functions/analyze.type.ts#L79)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[functions/analyze.type.ts:60](https://github.com/Angael/dunes-node/blob/5a5044b/src/functions/analyze.type.ts#L60)
+[functions/analyze.type.ts:60](https://github.com/Angael/dunes-node/blob/d38da99/src/functions/analyze.type.ts#L60)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[types.ts:46](https://github.com/Angael/dunes-node/blob/5a5044b/src/types.ts#L46)
+[types.ts:46](https://github.com/Angael/dunes-node/blob/d38da99/src/types.ts#L46)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[types.ts:31](https://github.com/Angael/dunes-node/blob/5a5044b/src/types.ts#L31)
+[types.ts:31](https://github.com/Angael/dunes-node/blob/d38da99/src/types.ts#L31)
 
 ___
 
@@ -222,7 +222,7 @@ ___
 
 #### Defined in
 
-[functions/analyze.type.ts:2](https://github.com/Angael/dunes-node/blob/5a5044b/src/functions/analyze.type.ts#L2)
+[functions/analyze.type.ts:2](https://github.com/Angael/dunes-node/blob/d38da99/src/functions/analyze.type.ts#L2)
 
 ___
 
@@ -232,13 +232,13 @@ ___
 
 #### Defined in
 
-[types.ts:15](https://github.com/Angael/dunes-node/blob/5a5044b/src/types.ts#L15)
+[types.ts:15](https://github.com/Angael/dunes-node/blob/d38da99/src/types.ts#L15)
 
 ## Functions
 
 ### analyze
 
-▸ **analyze**(`path`): `Promise`<[`SimpleAnalysisStats`](README.md#simpleanalysisstats)\>
+▸ **analyze**(`ffprobePath`, `path`): `Promise`<[`SimpleAnalysisStats`](README.md#simpleanalysisstats)\>
 
 Analyze audio or video file in a simple way.
 
@@ -246,6 +246,7 @@ Analyze audio or video file in a simple way.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
+| `ffprobePath` | `string` | - |
 | `path` | `string` | Path to video or video file |
 
 #### Returns
@@ -256,13 +257,13 @@ Promise with stats of audio or video file.
 
 #### Defined in
 
-[functions/analyze.ts:10](https://github.com/Angael/dunes-node/blob/5a5044b/src/functions/analyze.ts#L10)
+[functions/analyze.ts:10](https://github.com/Angael/dunes-node/blob/d38da99/src/functions/analyze.ts#L10)
 
 ___
 
 ### compressVideo
 
-▸ **compressVideo**(`srcPath`, `outPath`, `options`): `Promise`<`void`\>
+▸ **compressVideo**(`ffprobePath`, `srcPath`, `outPath`, `options`): `Promise`<`void`\>
 
 **`Example`**
 
@@ -285,6 +286,7 @@ When ffmpeg encounters an error
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
+| `ffprobePath` | `string` | - |
 | `srcPath` | `string` | Path to existing original video |
 | `outPath` | `string` | Path where compressed video should be saved. Currently only supports webm files. |
 | `options` | [`CompressionOptions`](README.md#compressionoptions) | Compression options to use when compressing the video |
@@ -297,13 +299,13 @@ Promise that resolves when compression ends.
 
 #### Defined in
 
-[functions/compressVideo.ts:24](https://github.com/Angael/dunes-node/blob/5a5044b/src/functions/compressVideo.ts#L24)
+[functions/compressVideo.ts:24](https://github.com/Angael/dunes-node/blob/d38da99/src/functions/compressVideo.ts#L24)
 
 ___
 
 ### createThumbnail
 
-▸ **createThumbnail**(`srcPath`, `outPath`, `options`): `Promise`<`void`\>
+▸ **createThumbnail**(`ffmpegPath`, `srcPath`, `outPath`, `options`): `Promise`<`void`\>
 
 **`Throws`**
 
@@ -327,6 +329,7 @@ await createThumbnail(src, out, {
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
+| `ffmpegPath` | `string` | - |
 | `srcPath` | `string` | Path to existing original video |
 | `outPath` | `string` | Path to webp thumbnail that you want to create |
 | `options` | [`ThumbnailOptions`](README.md#thumbnailoptions) | Options for creating thumbnail |
@@ -339,18 +342,19 @@ Promise that resolves when thumbnail is created
 
 #### Defined in
 
-[functions/createThumbnail.ts:27](https://github.com/Angael/dunes-node/blob/5a5044b/src/functions/createThumbnail.ts#L27)
+[functions/createThumbnail.ts:27](https://github.com/Angael/dunes-node/blob/d38da99/src/functions/createThumbnail.ts#L27)
 
 ___
 
 ### cut
 
-▸ **cut**(`srcPath`, `outPath`, `options`): `Promise`<`void`\>
+▸ **cut**(`ffmpegPath`, `srcPath`, `outPath`, `options`): `Promise`<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
+| `ffmpegPath` | `string` |
 | `srcPath` | `string` |
 | `outPath` | `string` |
 | `options` | [`CutOptions`](README.md#cutoptions) |
@@ -361,4 +365,4 @@ ___
 
 #### Defined in
 
-[functions/cut.ts:4](https://github.com/Angael/dunes-node/blob/5a5044b/src/functions/cut.ts#L4)
+[functions/cut.ts:4](https://github.com/Angael/dunes-node/blob/d38da99/src/functions/cut.ts#L4)
