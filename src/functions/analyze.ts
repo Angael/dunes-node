@@ -2,16 +2,10 @@ import { SimpleAnalysisStats } from "../types";
 import { runFfprobe } from "./ffprobe-helpers/runFfprobe";
 
 /**
- * @param path Path to video
+ * Analyze audio or video file in a simple way.
+ * @param path Path to video or video file
  *
- * @returns Promise with video stats of video from supplied path.
- *
- * @example
- * ```ts
- * import { analyzeVideo } from '@vanih/dunes-node';
- *
- * const result = await analyzeVideo('./video.mp4');
- * ```
+ * @returns Promise with stats of audio or video file.
  */
 export async function analyze(path: string): Promise<SimpleAnalysisStats> {
   const { streams, format } = await runFfprobe(path);

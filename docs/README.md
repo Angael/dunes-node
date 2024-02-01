@@ -9,9 +9,12 @@
 - [CompressionOptions](README.md#compressionoptions)
 - [CutOptions](README.md#cutoptions)
 - [FfmpegData](README.md#ffmpegdata)
+- [FfprobeOutput](README.md#ffprobeoutput)
+- [Format](README.md#format)
 - [RunFfmpegOptions](README.md#runffmpegoptions)
+- [SimpleAnalysisStats](README.md#simpleanalysisstats)
+- [Stream](README.md#stream)
 - [ThumbnailOptions](README.md#thumbnailoptions)
-- [VideoStats](README.md#videostats)
 
 ### Functions
 
@@ -28,7 +31,7 @@
 
 #### Defined in
 
-[types.ts:19](https://github.com/Angael/dunes-node/blob/e9b303e/src/types.ts#L19)
+[types.ts:21](https://github.com/Angael/dunes-node/blob/8a81042/src/types.ts#L21)
 
 ___
 
@@ -38,7 +41,7 @@ ___
 
 #### Defined in
 
-[types.ts:54](https://github.com/Angael/dunes-node/blob/e9b303e/src/types.ts#L54)
+[types.ts:63](https://github.com/Angael/dunes-node/blob/8a81042/src/types.ts#L63)
 
 ___
 
@@ -61,7 +64,54 @@ ___
 
 #### Defined in
 
-[types.ts:43](https://github.com/Angael/dunes-node/blob/e9b303e/src/types.ts#L43)
+[types.ts:52](https://github.com/Angael/dunes-node/blob/8a81042/src/types.ts#L52)
+
+___
+
+### FfprobeOutput
+
+Ƭ **FfprobeOutput**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `format` | [`Format`](README.md#format) |
+| `streams` | [`Stream`](README.md#stream)[] |
+
+#### Defined in
+
+[functions/analyze.type.ts:79](https://github.com/Angael/dunes-node/blob/8a81042/src/functions/analyze.type.ts#L79)
+
+___
+
+### Format
+
+Ƭ **Format**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `bit_rate` | `string` |
+| `duration` | `string` |
+| `filename` | `string` |
+| `format_long_name` | `string` |
+| `format_name` | `string` |
+| `nb_programs` | `number` |
+| `nb_streams` | `number` |
+| `probe_score` | `number` |
+| `size` | `string` |
+| `start_time` | `string` |
+| `tags` | { `compatible_brands`: `string` ; `encoder`: `string` ; `major_brand`: `string` ; `minor_version`: `string`  } |
+| `tags.compatible_brands` | `string` |
+| `tags.encoder` | `string` |
+| `tags.major_brand` | `string` |
+| `tags.minor_version` | `string` |
+
+#### Defined in
+
+[functions/analyze.type.ts:60](https://github.com/Angael/dunes-node/blob/8a81042/src/functions/analyze.type.ts#L60)
 
 ___
 
@@ -79,7 +129,100 @@ ___
 
 #### Defined in
 
-[types.ts:37](https://github.com/Angael/dunes-node/blob/e9b303e/src/types.ts#L37)
+[types.ts:46](https://github.com/Angael/dunes-node/blob/8a81042/src/types.ts#L46)
+
+___
+
+### SimpleAnalysisStats
+
+Ƭ **SimpleAnalysisStats**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `audio?` | { `channels`: `number` ; `sampleRate`: `number`  } |
+| `audio.channels` | `number` |
+| `audio.sampleRate` | `number` |
+| `bitrateKb` | `number` |
+| `durationMs` | `number` |
+| `sizeBytes` | `number` |
+| `video?` | { `fps`: `number` ; `height`: `number` ; `width`: `number`  } |
+| `video.fps` | `number` |
+| `video.height` | `number` |
+| `video.width` | `number` |
+
+#### Defined in
+
+[types.ts:31](https://github.com/Angael/dunes-node/blob/8a81042/src/types.ts#L31)
+
+___
+
+### Stream
+
+Ƭ **Stream**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `avg_frame_rate` | `string` |
+| `bit_rate` | `string` |
+| `bits_per_raw_sample?` | `string` |
+| `bits_per_sample?` | `number` |
+| `channel_layout?` | `string` |
+| `channels?` | `number` |
+| `chroma_location?` | `string` |
+| `codec_long_name` | `string` |
+| `codec_name` | `string` |
+| `codec_tag` | `string` |
+| `codec_tag_string` | `string` |
+| `codec_time_base` | `string` |
+| `codec_type` | `string` |
+| `coded_height?` | `number` |
+| `coded_width?` | `number` |
+| `display_aspect_ratio?` | `string` |
+| `disposition` | { `attached_pic`: `number` ; `clean_effects`: `number` ; `comment`: `number` ; `default`: `number` ; `dub`: `number` ; `forced`: `number` ; `hearing_impaired`: `number` ; `karaoke`: `number` ; `lyrics`: `number` ; `original`: `number` ; `timed_thumbnails`: `number` ; `visual_impaired`: `number`  } |
+| `disposition.attached_pic` | `number` |
+| `disposition.clean_effects` | `number` |
+| `disposition.comment` | `number` |
+| `disposition.default` | `number` |
+| `disposition.dub` | `number` |
+| `disposition.forced` | `number` |
+| `disposition.hearing_impaired` | `number` |
+| `disposition.karaoke` | `number` |
+| `disposition.lyrics` | `number` |
+| `disposition.original` | `number` |
+| `disposition.timed_thumbnails` | `number` |
+| `disposition.visual_impaired` | `number` |
+| `duration` | `string` |
+| `duration_ts` | `number` |
+| `has_b_frames?` | `number` |
+| `height?` | `number` |
+| `index` | `number` |
+| `is_avc?` | `string` |
+| `level?` | `number` |
+| `max_bit_rate?` | `string` |
+| `nal_length_size?` | `string` |
+| `nb_frames` | `string` |
+| `pix_fmt?` | `string` |
+| `profile` | `string` |
+| `r_frame_rate` | `string` |
+| `refs?` | `number` |
+| `sample_aspect_ratio?` | `string` |
+| `sample_fmt?` | `string` |
+| `sample_rate?` | `string` |
+| `start_pts` | `number` |
+| `start_time` | `string` |
+| `tags` | { `handler_name`: `string` ; `language`: `string`  } |
+| `tags.handler_name` | `string` |
+| `tags.language` | `string` |
+| `time_base` | `string` |
+| `width?` | `number` |
+
+#### Defined in
+
+[functions/analyze.type.ts:2](https://github.com/Angael/dunes-node/blob/8a81042/src/functions/analyze.type.ts#L2)
 
 ___
 
@@ -89,57 +232,31 @@ ___
 
 #### Defined in
 
-[types.ts:13](https://github.com/Angael/dunes-node/blob/e9b303e/src/types.ts#L13)
-
-___
-
-### VideoStats
-
-Ƭ **VideoStats**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `bitrateKb` | `number` |
-| `durationMs` | `number` |
-| `height?` | `number` |
-| `sizeBytes` | `number` |
-| `width?` | `number` |
-
-#### Defined in
-
-[types.ts:29](https://github.com/Angael/dunes-node/blob/e9b303e/src/types.ts#L29)
+[types.ts:15](https://github.com/Angael/dunes-node/blob/8a81042/src/types.ts#L15)
 
 ## Functions
 
 ### analyze
 
-▸ **analyze**(`path`): `Promise`<[`VideoStats`](README.md#videostats)\>
+▸ **analyze**(`path`): `Promise`<[`SimpleAnalysisStats`](README.md#simpleanalysisstats)\>
 
-**`Example`**
-
-```ts
-import { analyzeVideo } from '@vanih/dunes-node';
-
-const result = await analyzeVideo('./video.mp4');
-```
+Analyze audio or video file in a simple way.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `path` | `string` | Path to video |
+| `path` | `string` | Path to video or video file |
 
 #### Returns
 
-`Promise`<[`VideoStats`](README.md#videostats)\>
+`Promise`<[`SimpleAnalysisStats`](README.md#simpleanalysisstats)\>
 
-Promise with video stats of video from supplied path.
+Promise with stats of audio or video file.
 
 #### Defined in
 
-[functions/analyze.ts:34](https://github.com/Angael/dunes-node/blob/e9b303e/src/functions/analyze.ts#L34)
+[functions/analyze.ts:10](https://github.com/Angael/dunes-node/blob/8a81042/src/functions/analyze.ts#L10)
 
 ___
 
@@ -180,7 +297,7 @@ Promise that resolves when compression ends.
 
 #### Defined in
 
-[functions/compressVideo.ts:24](https://github.com/Angael/dunes-node/blob/e9b303e/src/functions/compressVideo.ts#L24)
+[functions/compressVideo.ts:24](https://github.com/Angael/dunes-node/blob/8a81042/src/functions/compressVideo.ts#L24)
 
 ___
 
@@ -222,7 +339,7 @@ Promise that resolves when thumbnail is created
 
 #### Defined in
 
-[functions/createThumbnail.ts:27](https://github.com/Angael/dunes-node/blob/e9b303e/src/functions/createThumbnail.ts#L27)
+[functions/createThumbnail.ts:27](https://github.com/Angael/dunes-node/blob/8a81042/src/functions/createThumbnail.ts#L27)
 
 ___
 
@@ -244,4 +361,4 @@ ___
 
 #### Defined in
 
-[functions/cut.ts:4](https://github.com/Angael/dunes-node/blob/e9b303e/src/functions/cut.ts#L4)
+[functions/cut.ts:4](https://github.com/Angael/dunes-node/blob/8a81042/src/functions/cut.ts#L4)
