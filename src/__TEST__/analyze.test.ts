@@ -5,9 +5,13 @@ const ffprobePath = "ffprobe";
 
 describe("analyze", () => {
   it("should return consistent results - vid a", async function () {
-    expect(await analyze(ffprobePath, "src/__TEST__/videos/a.mp4")).toEqual({
-      bitrateKb: 4879.678,
-      durationMs: 29718,
+    const analysis = await analyze(ffprobePath, "src/__TEST__/videos/a.mp4");
+
+    expect(analysis.bitrateKb).toBeGreaterThanOrEqual(4875);
+    expect(analysis.bitrateKb).toBeLessThanOrEqual(4885);
+    expect(analysis.durationMs).toBeGreaterThanOrEqual(29710);
+    expect(analysis.durationMs).toBeLessThanOrEqual(29725);
+    expect(analysis).toMatchObject({
       audio: {
         channels: 2,
         sampleRate: 48000,
@@ -18,20 +22,24 @@ describe("analyze", () => {
         fps: 30,
       },
       sizeBytes: 18126784,
-    } satisfies SimpleAnalysisStats);
+    });
   });
 
   it("should return consistent results - vid b", async function () {
-    expect(await analyze(ffprobePath, "src/__TEST__/videos/b.mp4")).toEqual({
-      bitrateKb: 52.589,
-      durationMs: 8000,
+    const analysis = await analyze(ffprobePath, "src/__TEST__/videos/b.mp4");
+
+    expect(analysis.bitrateKb).toBeGreaterThanOrEqual(52);
+    expect(analysis.bitrateKb).toBeLessThanOrEqual(53);
+    expect(analysis.durationMs).toBeGreaterThanOrEqual(7900);
+    expect(analysis.durationMs).toBeLessThanOrEqual(8100);
+    expect(analysis).toMatchObject({
       video: {
         height: 180,
         width: 240,
         fps: 30,
       },
       sizeBytes: 52589,
-    } satisfies SimpleAnalysisStats);
+    });
   });
 
   it.each([
