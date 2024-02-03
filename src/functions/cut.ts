@@ -1,5 +1,6 @@
 import { CutOptions } from "../types";
 import { runFfmpeg } from "./ffmpeg-helpers/runFfmpeg";
+import { msToHMS } from "./utils/msToHMS";
 
 export const cut = async (
   ffmpegPath: string,
@@ -7,15 +8,20 @@ export const cut = async (
   outPath: string,
   options: CutOptions
 ) => {
-  const { startTimeMs, endTimeMs } = options;
+  const { startTimeMs, endTimeMs, precise } = options;
+
+  const timeArgs = [
+    "-ss",
+    `${msToHMS(startTimeMs)}`,
+    "-to",
+    `${msToHMS(endTimeMs)}`,
+  ];
 
   const args = [
-    "-ss",
-    `${startTimeMs / 1000}`,
+    ...(!precise ? timeArgs : []),
     "-i",
     srcPath,
-    "-to",
-    `${endTimeMs / 1000}`,
+    ...(precise ? timeArgs : []),
     "-c",
     "copy",
     outPath,
